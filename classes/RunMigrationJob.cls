@@ -99,6 +99,7 @@ public without sharing class RunMigrationJob extends AbstractRestfullService {
         System.debug(loggingLevel.Error, '*** chunckSizeMap: ' + chunckSizeMap);
         initialJobId = System.schedule('Migration Data Preparation - 1 - objectName: ' + objectName, Datetime.now().addSeconds(20).format('s m H d M ? yyyy'), new ScheduleCallout(new Map<String, List<sObject>>(), false, 1, job, queryString, whereIds, orderedMap, migrationRules, MRRelationsMap, literalValues, dmlPriorityMap, selfRelation, externalMappings, sourceFields, sourceToTarget, chunckSizeMap, rtMappings) );
     }
+    
     public void mappingSetup() {
         sourceFields = new Map<String, Map<String, String>>();
         externalMappings = new Map<String, Map<String, String>>();
@@ -149,11 +150,20 @@ public without sharing class RunMigrationJob extends AbstractRestfullService {
             for (RecordType rtype : sourceRecordTypes.get(objName)) {
                 if (rtMappings.containsKey(objName)) {
                     Map<Id, String> temp = rtMappings.get(objName);
-                    temp.put(rtype.Id, rtNames.get(rtype.Name));
+                    if (rtNames.containsKey(rtype.DeveloperName)) {
+                        temp.put(rtype.Id, rtNames.get(rtype.DeveloperName));
+                    } else if (rtNames.containsKey(rtype.Name)) {
+                        temp.put(rtype.Id, rtNames.get(rtype.Name));
+                    }
+                    
                     rtMappings.put(objName, temp);
                 } else {
                     Map<Id, String> temp = new Map<Id, String>();
-                    temp.put(rtype.Id, rtNames.get(rtype.Name));
+                    if (rtNames.containsKey(rtype.DeveloperName)) {
+                        temp.put(rtype.Id, rtNames.get(rtype.DeveloperName));
+                    } else if (rtNames.containsKey(rtype.Name)) {
+                        temp.put(rtype.Id, rtNames.get(rtype.Name));
+                    }
                     rtMappings.put(objName, temp);
                 }
             }
@@ -238,7 +248,7 @@ public without sharing class RunMigrationJob extends AbstractRestfullService {
                 FROM Migration_Rule_Relation__c
                 WHERE Detail_Migration_Rule__c IN: migrationRules.keySet() OR Master_Migration_Rule__c IN: migrationRules.keySet()]);
         for (Migration_Rule_Relation__c mrr : relations) {
-            if (relationsMap.containsKey(mrr.Master_Migration_Rule__c)) {
+            if (relationsMap.containsKey(mrr.Master_Migration_Rule__c) && migrationRules.containsKey(mrr.Detail_Migration_Rule__c)) {
                 Map<RelationEnum, Map<Id, Migration_Rule__c>> tempMap = relationsMap.get(mrr.Master_Migration_Rule__c);
                 Map<RelationEnum, Map<Id, Migration_Rule_Relation__c>> tempRelationMap = MRRelationsMap.get(mrr.Master_Migration_Rule__c);
                 Map<Id, Migration_Rule__c> tempList;
@@ -258,7 +268,7 @@ public without sharing class RunMigrationJob extends AbstractRestfullService {
                 tempRelationMap.put(RelationEnum.CHILD, tempRelationList);
                 relationsMap.put(mrr.Master_Migration_Rule__c, tempMap);
                 MRRelationsMap.put(mrr.Master_Migration_Rule__c, tempRelationMap);
-            } else {
+            } else if (migrationRules.containsKey(mrr.Detail_Migration_Rule__c)) {
                 Map<RelationEnum, Map<Id, Migration_Rule__c>> tempMap = new Map<RelationEnum, Map<Id, Migration_Rule__c>>();
                 Map<RelationEnum, Map<Id, Migration_Rule_Relation__c>> tempRelationMap = new Map<RelationEnum, Map<Id, Migration_Rule_Relation__c>>();
                 tempMap.put(RelationEnum.CHILD, new Map<Id, Migration_Rule__c> {migrationRules.get(mrr.Detail_Migration_Rule__c).id => migrationRules.get(mrr.Detail_Migration_Rule__c)});
@@ -266,7 +276,7 @@ public without sharing class RunMigrationJob extends AbstractRestfullService {
                 relationsMap.put(mrr.Master_Migration_Rule__c, tempMap);
                 MRRelationsMap.put(mrr.Master_Migration_Rule__c, tempRelationMap);
             }
-            if (relationsMap.containsKey(mrr.Detail_Migration_Rule__c)) {
+            if (relationsMap.containsKey(mrr.Detail_Migration_Rule__c) && migrationRules.containsKey(mrr.Master_Migration_Rule__c)) {
                 Map<RelationEnum, Map<Id, Migration_Rule__c>> tempMap = relationsMap.get(mrr.Detail_Migration_Rule__c);
                 Map<RelationEnum, Map<Id, Migration_Rule_Relation__c>> tempRelationMap = MRRelationsMap.get(mrr.Detail_Migration_Rule__c);
                 Map<Id, Migration_Rule__c> tempList;
@@ -286,7 +296,7 @@ public without sharing class RunMigrationJob extends AbstractRestfullService {
                 tempRelationMap.put(RelationEnum.PARENT, tempRelationList);
                 relationsMap.put(mrr.Detail_Migration_Rule__c, tempMap);
                 MRRelationsMap.put(mrr.Detail_Migration_Rule__c, tempRelationMap);
-            } else {
+            } else if (migrationRules.containsKey(mrr.Master_Migration_Rule__c)) {
                 Map<RelationEnum, Map<Id, Migration_Rule__c>> tempMap = new Map<RelationEnum, Map<Id, Migration_Rule__c>>();
                 Map<RelationEnum, Map<Id, Migration_Rule_Relation__c>> tempRelationMap = new Map<RelationEnum, Map<Id, Migration_Rule_Relation__c>>();
                 tempMap.put(RelationEnum.PARENT, new Map<Id, Migration_Rule__c> {migrationRules.get(mrr.Master_Migration_Rule__c).id => migrationRules.get(mrr.Master_Migration_Rule__c)});

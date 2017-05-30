@@ -72,7 +72,7 @@ global with sharing class RestIntegrationHandler {
 							} else if (fr.getType() == DisplayType.REFERENCE && !relatedTo.isEmpty() && fname != 'RecordTypeId') {
 								if (relatedTo[0].getDescribe().getName() == 'User') {
 									record.put(targetFname, UserInfo.getUserId());
-								} else if (isSelf && relatedTo[0].getDescribe().getName() == objectName) {
+								} else if (isSelf && relatedTo[0].getDescribe().getName() == objectName && externalMappings.containsKey(relatedTo[0].getDescribe().getName())) {
 									SObject reference = relatedTo[0].newSObject();
 									for (String extS : externalMappings.get(relatedTo[0].getDescribe().getName()).keySet()) {
 										reference.put(externalMappings.get(relatedTo[0].getDescribe().getName()).get(extS), obj.get(fname));
@@ -81,7 +81,7 @@ global with sharing class RestIntegrationHandler {
 								} else {
 									SObject reference = relatedTo[0].newSObject();
 									System.debug(loggingLevel.Error, '*** reference: ' + reference);
-									if (!relatedTo.isEmpty() && relatedTo != null) {
+									if (!relatedTo.isEmpty() && relatedTo != null && externalMappings.containsKey(relatedTo[0].getDescribe().getName())) {
 										for (String extS : externalMappings.get(relatedTo[0].getDescribe().getName()).keySet()) {
 											reference.put(externalMappings.get(relatedTo[0].getDescribe().getName()).get(extS), obj.get(fname));
 											
@@ -94,6 +94,8 @@ global with sharing class RestIntegrationHandler {
 								System.debug(loggingLevel.Error, '*** recordTypeMappingScope: ');
 								System.debug(loggingLevel.Error, '*** objectName: ' + objectName);
 								System.debug(loggingLevel.Error, '*** recordTypeMap: ' + recordTypeMap);
+								System.debug(loggingLevel.Error, '*** rtMappings: ' + rtMappings);
+								System.debug(loggingLevel.Error, '*** obj.get(fname): ' + obj.get(fname));
 								System.debug(loggingLevel.Error, '*** String.valueOf(recordTypeMap.get(rtMappings.get(objectName).get(String.valueOf(obj.get(fname))))): ' + String.valueOf(recordTypeMap.get(rtMappings.get(objectName).get(String.valueOf(obj.get(fname))))));
 								if (rtMappings.containsKey(objectName) && rtMappings.get(objectName).containsKey(String.valueOf(obj.get(fname))) && recordTypeMap.containsKey(rtMappings.get(objectName).get(String.valueOf(obj.get(fname)))))
 									record.put('RecordTypeId', String.valueOf(recordTypeMap.get(rtMappings.get(objectName).get(String.valueOf(obj.get(fname))))));

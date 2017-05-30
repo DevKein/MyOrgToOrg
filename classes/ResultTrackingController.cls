@@ -5,62 +5,53 @@
  */
 public with sharing class ResultTrackingController {
 	public Migration_Job__c migrationJob;
-	public Map<String,operationWrapper> operations {get; set;}
+	public Map<String, operationWrapper> operations {get; set;}
 	public Datetime startTime {get; set;}
 	public String batchJobId {get; set;}
-	public Integer processCounter {get;set;}
+	public Integer processCounter {get; set;}
 	/**
 	 * Constructor method
-	 * Initializes first operation 
+	 * Initializes first operation
 	 */
 	public ResultTrackingController(ApexPages.StandardController stdController) {
-		/*stdController.addFields(new String[]{
-            'MigrateTHIS__Org_Credential__c',
-            'Base_Object_Migration_Rule__c',
-            'List_View_Id__c',
-            'Notification_Email_Address__c',
-            'Send_Notification_Email_On_Complete__c'
-        });*/
-        migrationJob = (Migration_Job__c)stdController.getRecord();
+		migrationJob = (Migration_Job__c)stdController.getRecord();
 		processCounter = 0;
-		operations = new Map<String,operationWrapper>();
+		operations = new Map<String, operationWrapper>();
 		batchJobId = [SELECT Id FROM ApexClass WHERE Name = 'BatchCallout' LIMIT 1].id;
-		
 		String jobId = migrationJob.ID;
 		try {
 			startTime = Datetime.valueOf(ApexPages.currentPage().getParameters().get('startDatetime'));
 		} catch (Exception ex) {
 		}
-		
 	}
-	
+
 	/**
-     * Gets scheduled apex jobs and their related batch apex jobs to show them in the tracking page.
-     * @return PageReference
-     */
-    public PageReference track() {
-        Set<Id> jobIds = new Set<Id>();
-        for (CronTrigger ct : [SELECT Id, StartTime, EndTime, OwnerId, PreviousFireTime, CronExpression, CronJobDetail.Name , CronJobDetail.JobType, State  FROM CronTrigger
-                                              WHERE (CronJobDetail.JobType = '7' AND CronJobDetail.Name LIKE 'Migration%-%')]) {
-            if(!operations.containsKey(ct.CronJobDetail.Name)){
-                processCounter++;
-                for(String k : operations.keySet()){
-                	operationWrapper temp = operations.get(k);
-	            	temp.State = 'Completed';
-	            	operations.put(ct.CronJobDetail.Name, temp);
-                }
-                operations.put(ct.CronJobDetail.Name,new operationWrapper(ct.CronJobDetail.Name, 'ScheduledApex', ct.StartTime, ct.EndTime, 'Scheduled'));
-            }            
-            jobIds.add(ct.Id);
-        }
-        
-        /*for (AsyncApexJob apj : [SELECT Id, CreatedDate, JobType, ApexClassId, ApexClass.Name, Status, JobItemsProcessed, TotalJobItems, NumberOfErrors, CompletedDate, ParentJobId, LastProcessed
-                                 FROM AsyncApexJob
-                                 WHERE JobType = 'BatchApex' AND CreatedDate >=: startTime AND ApexClass.Name LIKE 'BatchCallout']) {
-            operations.add(new operationWrapper('Batch Operation', apj.JobType, apj.CreatedDate, apj.CompletedDate, apj.Status));
-        }*/
-        return null;
-    }
+	 * Gets scheduled apex jobs and their related batch apex jobs to show them in the tracking page.
+	 * @return PageReference
+	 */
+	public PageReference track() {
+		Set<Id> jobIds = new Set<Id>();
+		List<CronTrigger> cron = new List<CronTrigger>([SELECT Id, StartTime, EndTime, OwnerId, PreviousFireTime, CronExpression, CronJobDetail.Name , CronJobDetail.JobType, State  FROM CronTrigger
+		        WHERE (CronJobDetail.JobType = '7' AND CronJobDetail.Name LIKE 'Migration%-%')]);
+		if (!cron.isEmpty()) {
+			for (CronTrigger ct : cron) {
+				if (!operations.containsKey(ct.CronJobDetail.Name)) {
+					processCounter++;
+					for (String k : operations.keySet()) {
+						operationWrapper temp = operations.get(k);
+						temp.State = 'Completed';
+						operations.put(ct.CronJobDetail.Name, temp);
+					}
+					operations.put(ct.CronJobDetail.Name, new operationWrapper(ct.CronJobDetail.Name, 'ScheduledApex', ct.StartTime, ct.EndTime, 'Scheduled'));
+				}
+				jobIds.add(ct.Id);
+			}
+		} else {
+			operations.clear();
+			operations.put('Job Completed', new operationWrapper('Job Completed', 'Complition', Datetime.now(), Datetime.now(), 'Completed'));
+		}
+		return null;
+	}
 	/**
 	 * Operation wrapper
 	 */

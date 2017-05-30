@@ -5,7 +5,7 @@ public with sharing class RecordTypes {
 
 	public static Map<String, List<RecordType>> recordTypeMap(Set<String> sObjectnames,Set<String> rtNames) {
 		rtMap = new Map<String, List<RecordType>>();
-		for ( RecordType rt : [Select DeveloperName, Id, SObjectType,Name FROM RecordType WHERE sObjectType IN: sObjectnames AND Name IN:rtNames] ) {
+		for ( RecordType rt : [Select DeveloperName, Id, SObjectType,Name FROM RecordType WHERE sObjectType IN: sObjectnames AND (DeveloperName IN:rtNames OR Name IN:rtNames)] ) {
 			if (sObjectnames.contains(rt.sObjectType)) {
 				if (rtMap.containsKey(rt.sObjectType)) {
 					List<RecordType> temp = rtMap.get(rt.sObjectType);
@@ -28,7 +28,7 @@ public with sharing class RecordTypes {
 	public static Map<String, Id> recordTypeMap(String sObjectName) {
 		Map<String,Id> destinationRtMap = new Map<String,Id>();
 		for ( RecordType rt : [Select DeveloperName, Id, SObjectType,Name FROM RecordType WHERE sObjectType =: sObjectName] ) {
-			destinationRtMap.put(rt.Name,rt.Id);
+			destinationRtMap.put(rt.DeveloperName,rt.Id);
 		}
 		return destinationRtMap;
 	}
