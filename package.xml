@@ -985,6 +985,7 @@
     <members>OrderItem.Quantity</members>
     <members>OrderItem.ServiceDate</members>
     <members>OrderItem.SystemModstamp</members>
+    <members>OrderItem.TotalPrice</members>
     <members>OrderItem.UnitPrice</members>
     <members>Partner.AccountFromId</members>
     <members>Partner.AccountToId</members>
@@ -1357,6 +1358,7 @@
     <members>AccountContactRole</members>
     <members>Activity</members>
     <members>Asset</members>
+    <members>AssetRelationship</members>
     <members>AssistantProgress</members>
     <members>Campaign</members>
     <members>CampaignMember</members>
