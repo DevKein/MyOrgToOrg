@@ -42,6 +42,49 @@
     <name>ApexPage</name>
   </types>
   <types>
+    <members>AppSwitcher</members>
+    <members>Salesforce1</members>
+    <name>AppMenu</name>
+  </types>
+  <types>
+    <members>Case.Standard</members>
+    <members>Lead.Standard</members>
+    <name>AssignmentRule</name>
+  </types>
+  <types>
+    <members>Case</members>
+    <members>Lead</members>
+    <name>AssignmentRules</name>
+  </types>
+  <types>
+    <members>Case</members>
+    <members>Lead</members>
+    <name>AutoResponseRules</name>
+  </types>
+  <types>
+    <members>DataCloudGeoLocation</members>
+    <name>CleanDataService</name>
+  </types>
+  <types>
+    <members>Internal Zone</members>
+    <name>Community</name>
+  </types>
+  <types>
+    <members>MigrateTHIS</members>
+    <members>standard__AppLauncher</members>
+    <members>standard__Chatter</members>
+    <members>standard__Community</members>
+    <members>standard__Content</members>
+    <members>standard__LightningSales</members>
+    <members>standard__Marketing</members>
+    <members>standard__Platform</members>
+    <members>standard__Sales</members>
+    <members>standard__Service</members>
+    <members>standard__ServiceConsole</members>
+    <members>standard__Sites</members>
+    <name>CustomApplication</name>
+  </types>
+  <types>
     <members>Account.AccountNumber</members>
     <members>Account.AccountSource</members>
     <members>Account.Active__c</members>
@@ -1353,6 +1396,10 @@
     <name>CustomField</name>
   </types>
   <types>
+    <members>CustomLabels</members>
+    <name>CustomLabels</name>
+  </types>
+  <types>
     <members>Account</members>
     <members>AccountCleanInfo</members>
     <members>AccountContactRole</members>
@@ -1409,6 +1456,99 @@
     <members>User</members>
     <members>UserProvisioningRequest</members>
     <name>CustomObject</name>
+  </types>
+  <types>
+    <members>Migration_Job_Rule_Hierarchy__c-es</members>
+    <members>Migration_Job__c-es</members>
+    <members>Migration_Log__c-es</members>
+    <members>Migration_Rule_Mapping__c-es</members>
+    <members>Migration_Rule_Relation__c-es</members>
+    <members>Migration_Rule__c-es</members>
+    <members>RecordType_Mapping__c-es</members>
+    <members>Settings__c-es</members>
+    <name>CustomObjectTranslation</name>
+  </types>
+  <types>
+    <members>Migration_Job__c</members>
+    <members>Migration_Rule__c</members>
+    <members>Settings__c</members>
+    <members>standard-Account</members>
+    <members>standard-AppLauncher</members>
+    <members>standard-Asset</members>
+    <members>standard-Campaign</members>
+    <members>standard-Case</members>
+    <members>standard-Chatter</members>
+    <members>standard-CollaborationGroup</members>
+    <members>standard-Console</members>
+    <members>standard-Contact</members>
+    <members>standard-ContentContribute</members>
+    <members>standard-ContentSearch</members>
+    <members>standard-ContentSubscriptions</members>
+    <members>standard-Contract</members>
+    <members>standard-DandBCompany</members>
+    <members>standard-Dashboard</members>
+    <members>standard-Document</members>
+    <members>standard-DuplicateRecordSet</members>
+    <members>standard-File</members>
+    <members>standard-Forecasting3</members>
+    <members>standard-Idea</members>
+    <members>standard-JigsawSearch</members>
+    <members>standard-Lead</members>
+    <members>standard-Macro</members>
+    <members>standard-Opportunity</members>
+    <members>standard-Order</members>
+    <members>standard-OtherUserProfile</members>
+    <members>standard-Pricebook2</members>
+    <members>standard-Product2</members>
+    <members>standard-ProfilePlatformFeed</members>
+    <members>standard-ProfilePlatformOverview</members>
+    <members>standard-Sites</members>
+    <members>standard-Solution</members>
+    <members>standard-StreamingChannel</members>
+    <members>standard-UserProfile</members>
+    <members>standard-UserProvisioningRequest</members>
+    <members>standard-Workspace</members>
+    <members>standard-home</members>
+    <members>standard-report</members>
+    <name>CustomTab</name>
+  </types>
+  <types>
+    <members>Contact.Regla_est_ndar_para_Contactos_con_Candidatos_duplicado</members>
+    <members>Lead.Regla_est_ndar_para_Candidatos_con_Contactos_duplicado</members>
+    <name>DuplicateRule</name>
+  </types>
+  <types>
+    <members>unfiled$public/MarketingProductInquiryResponse</members>
+    <members>unfiled$public/SUPPORTSelfServiceNewCommentNotificationSAMPLE</members>
+    <members>unfiled$public/SUPPORTSelfServiceNewUserLoginInformationSAMPLE</members>
+    <members>unfiled$public/SUPPORTSelfServiceResetPasswordSAMPLE</members>
+    <members>unfiled$public/SalesNewCustomerEmail</members>
+    <members>unfiled$public/SupportCaseAssignmentNotification</members>
+    <members>unfiled$public/SupportCaseCreatedPhoneInquiries</members>
+    <members>unfiled$public/SupportCaseCreatedWebInquiries</members>
+    <members>unfiled$public/SupportCaseResponse</members>
+    <members>unfiled$public/SupportEscalatedCaseNotification</members>
+    <members>unfiled$public/SupportEscalatedCaseReassignment</members>
+    <members>unfiled$public/SupportSelfServiceNewLoginandPassword</members>
+    <members>unfiled$public/SupportSelfServiceResetPassword</members>
+    <name>EmailTemplate</name>
+  </types>
+  <types>
+    <members>Case.Standard</members>
+    <name>EscalationRule</name>
+  </types>
+  <types>
+    <members>Case</members>
+    <name>EscalationRules</name>
+  </types>
+  <types>
+    <members>LightningSalesConsole_UtilityBar</members>
+    <members>LightningService_UtilityBar</members>
+    <name>FlexiPage</name>
+  </types>
+  <types>
+    <members>DE Default</members>
+    <name>HomePageLayout</name>
   </types>
   <types>
     <members>Account-Account %28Marketing%29 Layout</members>
@@ -1469,6 +1609,222 @@
     <name>Layout</name>
   </types>
   <types>
+    <members>Account.AllAccounts</members>
+    <members>Account.MyAccounts</members>
+    <members>Account.NewLastWeek</members>
+    <members>Account.NewThisWeek</members>
+    <members>Account.PlatinumandGoldSLACustomers</members>
+    <members>Activity.AllActivities</members>
+    <members>Activity.MyActivities</members>
+    <members>Activity.TodaysTasks</members>
+    <members>Activity.UpcomingEvents</members>
+    <members>Asset.AllAssets</members>
+    <members>Campaign.AllActiveCampaigns</members>
+    <members>Campaign.MyActiveCampaigns</members>
+    <members>Case.AllClosedCases</members>
+    <members>Case.AllOpenCases</members>
+    <members>Case.MyCases</members>
+    <members>Case.MyOpenCases</members>
+    <members>Contact.AllContacts</members>
+    <members>Contact.BirthdaysThisMonth</members>
+    <members>Contact.MyContacts</members>
+    <members>Contact.NewLastWeek</members>
+    <members>Contact.NewThisWeek</members>
+    <members>Contract.AllActivatedContracts</members>
+    <members>Contract.AllContracts</members>
+    <members>Contract.AllDraftContracts</members>
+    <members>Contract.AllInApprovalContracts</members>
+    <members>Contract.MyActivatedContracts</members>
+    <members>Contract.MyDraftContracts</members>
+    <members>Contract.MyInApprovalContracts</members>
+    <members>Idea.Ideas_Last_7_Days</members>
+    <members>Lead.AllOpenLeads</members>
+    <members>Lead.MyUnreadLeads</members>
+    <members>Lead.TodaysLeads</members>
+    <members>Lead.ViewCustom1</members>
+    <members>Lead.ViewCustom2</members>
+    <members>Migration_Job__c.All</members>
+    <members>Migration_Rule__c.All</members>
+    <members>Opportunity.AllOpportunities</members>
+    <members>Opportunity.ClosingNextMonth</members>
+    <members>Opportunity.ClosingThisMonth</members>
+    <members>Opportunity.Default_Opportunity_Pipeline</members>
+    <members>Opportunity.MyOpportunities</members>
+    <members>Opportunity.NewLastWeek</members>
+    <members>Opportunity.NewThisWeek</members>
+    <members>Opportunity.Private</members>
+    <members>Opportunity.Won</members>
+    <members>Order.AllActivatedOrders</members>
+    <members>Order.AllDraftOrders</members>
+    <members>Order.AllOrders</members>
+    <members>Product2.AllProducts</members>
+    <members>Settings__c.All</members>
+    <members>Solution.AllReviewedSolutions</members>
+    <members>Solution.AllUnreviewedSolutions</members>
+    <members>User.ActiveUsers</members>
+    <members>User.AdminUsers</members>
+    <members>User.AllUsers</members>
+    <members>WorkFeedbackRequest.AboutTopics</members>
+    <members>WorkFeedbackRequest.All</members>
+    <members>WorkFeedbackTemplate.All</members>
+    <name>ListView</name>
+  </types>
+  <types>
+    <members>Account.Standard_Account_Match_Rule_v1_0</members>
+    <members>Contact.Standard_Contact_Match_Rule_v1_1</members>
+    <members>Lead.Standard_Lead_Match_Rule_v1_0</members>
+    <name>MatchingRule</name>
+  </types>
+  <types>
+    <members>Account</members>
+    <members>Contact</members>
+    <members>Lead</members>
+    <name>MatchingRules</name>
+  </types>
+  <types>
+    <members>Admin</members>
+    <members>Analytics Cloud Integration User</members>
+    <members>Analytics Cloud Security User</members>
+    <members>Authenticated Website</members>
+    <members>Chatter External User</members>
+    <members>Chatter Free User</members>
+    <members>Chatter Moderator User</members>
+    <members>ContractManager</members>
+    <members>Cross Org Data Proxy User</members>
+    <members>Custom%3A Marketing Profile</members>
+    <members>Custom%3A Sales Profile</members>
+    <members>Custom%3A Support Profile</members>
+    <members>Customer Community Login User</members>
+    <members>Customer Community Plus Login User</members>
+    <members>Customer Community Plus User</members>
+    <members>Customer Community User</members>
+    <members>Customer Portal Manager Custom</members>
+    <members>Customer Portal Manager Standard</members>
+    <members>External Identity User</members>
+    <members>Force%2Ecom - App Subscription User</members>
+    <members>Force%2Ecom - Free User</members>
+    <members>Gold Partner User</members>
+    <members>High Volume Customer Portal User</members>
+    <members>HighVolumePortal</members>
+    <members>Identity User</members>
+    <members>MarketingProfile</members>
+    <members>Partner App Subscription User</members>
+    <members>Partner Community Login User</members>
+    <members>Partner Community User</members>
+    <members>PlatformPortal</members>
+    <members>ReadOnly</members>
+    <members>Silver Partner User</members>
+    <members>SolutionManager</members>
+    <members>Standard</members>
+    <members>StandardAul</members>
+    <members>Work%2Ecom Only User</members>
+    <name>Profile</name>
+  </types>
+  <types>
+    <members>Case.NewChildCase</members>
+    <members>CollaborationGroup.NewGroupMember</members>
+    <members>CollaborationGroup.NewGroupRecord</members>
+    <members>FeedItem.NewTaskFromFeedItem</members>
+    <members>LogACall</members>
+    <members>NewAccount</members>
+    <members>NewCase</members>
+    <members>NewContact</members>
+    <members>NewEvent</members>
+    <members>NewGroup</members>
+    <members>NewLead</members>
+    <members>NewNote</members>
+    <members>NewOpportunity</members>
+    <members>NewTask</members>
+    <members>SendEmail</members>
+    <members>Task.Defer</members>
+    <members>Task.Defer_0</members>
+    <members>Task.EditDescription</members>
+    <members>Task.EditDescription_0</members>
+    <members>Task.UpdatePriority</members>
+    <members>Task.UpdatePriority_0</members>
+    <members>Task.UpdateStatus</members>
+    <members>Task.UpdateStatus_0</members>
+    <name>QuickAction</name>
+  </types>
+  <types>
+    <members>Metric.Completion</members>
+    <members>Metric.Progress</members>
+    <name>RecordType</name>
+  </types>
+  <types>
+    <members>ApexDevNet</members>
+    <name>RemoteSiteSetting</name>
+  </types>
+  <types>
+    <members>unfiled$public</members>
+    <name>Report</name>
+  </types>
+  <types>
+    <members>CEO</members>
+    <members>CFO</members>
+    <members>COO</members>
+    <members>ChannelSalesTeam</members>
+    <members>CustomerSupportInternational</members>
+    <members>CustomerSupportNorthAmerica</members>
+    <members>DirectorChannelSales</members>
+    <members>DirectorDirectSales</members>
+    <members>EasternSalesTeam</members>
+    <members>InstallationRepairServices</members>
+    <members>MarketingTeam</members>
+    <members>SVPCustomerServiceSupport</members>
+    <members>SVPHumanResources</members>
+    <members>SVPSalesMarketing</members>
+    <members>VPInternationalSales</members>
+    <members>VPMarketing</members>
+    <members>VPNorthAmericanSales</members>
+    <members>WesternSalesTeam</members>
+    <name>Role</name>
+  </types>
+  <types>
+    <members>Account</members>
+    <members>Activities</members>
+    <members>Address</members>
+    <members>BusinessHours</members>
+    <members>Case</members>
+    <members>Company</members>
+    <members>Contract</members>
+    <members>Entitlement</members>
+    <members>FileUploadAndDownloadSecurity</members>
+    <members>Forecasting</members>
+    <members>Ideas</members>
+    <members>Knowledge</members>
+    <members>LiveAgent</members>
+    <members>Macro</members>
+    <members>Mobile</members>
+    <members>Name</members>
+    <members>Opportunity</members>
+    <members>Order</members>
+    <members>OrgPreference</members>
+    <members>PathAssistant</members>
+    <members>PersonalJourney</members>
+    <members>Product</members>
+    <members>Quote</members>
+    <members>Search</members>
+    <members>Security</members>
+    <name>Settings</name>
+  </types>
+  <types>
+    <members>Account</members>
+    <members>Asset</members>
+    <members>Campaign</members>
+    <members>Case</members>
+    <members>Contact</members>
+    <members>Lead</members>
+    <members>Migration_Job__c</members>
+    <members>Migration_Log__c</members>
+    <members>Migration_Rule__c</members>
+    <members>Opportunity</members>
+    <members>Order</members>
+    <members>Settings__c</members>
+    <members>User</members>
+    <name>SharingRules</name>
+  </types>
+  <types>
     <members>AccountOwnership</members>
     <members>AccountRating</members>
     <members>AccountRating</members>
@@ -1515,6 +1871,61 @@
   <types>
     <members>Migration_Rule_Mapping__c.ValueControl</members>
     <name>ValidationRule</name>
+  </types>
+  <types>
+    <members>Account.Billing</members>
+    <members>Campaign.ViewCampaignInfluenceReport</members>
+    <members>Case.UpsellCrosssellOpportunity</members>
+    <members>Migration_Job__c.Run_Now</members>
+    <members>Migration_Rule__c.Set_Mappings</members>
+    <members>Opportunity.DeliveryStatus</members>
+    <name>WebLink</name>
+  </types>
+  <types>
+    <members>Account</members>
+    <members>Asset</members>
+    <members>AssetRelationship</members>
+    <members>AssistantProgress</members>
+    <members>Campaign</members>
+    <members>CampaignMember</members>
+    <members>Case</members>
+    <members>Contact</members>
+    <members>Contract</members>
+    <members>DandBCompany</members>
+    <members>DuplicateRecordItem</members>
+    <members>DuplicateRecordSet</members>
+    <members>EmailMessage</members>
+    <members>Event</members>
+    <members>ExchangeUserMapping</members>
+    <members>FeedItem</members>
+    <members>Idea</members>
+    <members>Lead</members>
+    <members>Macro</members>
+    <members>MacroAction</members>
+    <members>MacroInstruction</members>
+    <members>Migration_Job_Rule_Hierarchy__c</members>
+    <members>Migration_Job__c</members>
+    <members>Migration_Log__c</members>
+    <members>Migration_Rule_Mapping__c</members>
+    <members>Migration_Rule_Relation__c</members>
+    <members>Migration_Rule__c</members>
+    <members>Opportunity</members>
+    <members>OpportunityLineItem</members>
+    <members>Order</members>
+    <members>OrderItem</members>
+    <members>Organization</members>
+    <members>Product2</members>
+    <members>RecordType_Mapping__c</members>
+    <members>Settings__c</members>
+    <members>Site</members>
+    <members>SocialPersona</members>
+    <members>Solution</members>
+    <members>StreamingChannel</members>
+    <members>Task</members>
+    <members>User</members>
+    <members>UserLicense</members>
+    <members>UserProvisioningRequest</members>
+    <name>Workflow</name>
   </types>
   <version>39.0</version>
 </Package>

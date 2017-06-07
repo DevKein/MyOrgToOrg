@@ -23,8 +23,6 @@ public abstract class AbstractRestfullService implements IRestfullService{
     public String login(Settings__c integrationSettings,ClientResource client) {
         clientId = integrationSettings.Connected_App_Client_Id__c;//'3MVG9A2kN3Bn17huuJlHc.XjLIxb2mXSAA6Rmt_2ndH5fZ7HxTLM9CXzfOiwBjV4kZN7uMIE3VpNx69Qo8GiE';
         clientSecret = integrationSettings.Connected_App_Client_Secret__c;//'5668655138706191715 ';
-        //username = integrationSettings.Destination_Org_Username__c;//'mertyalti@gmail.com';
-        //password = integrationSettings.Destination_Org_Password__c + integrationSettings.Destination_Org_Security_Token__c; //'Mert1635?r3W6AdMDnE1Vvmb5Up0Ucts2 ';
         endPoint = integrationSettings.Destination_Endpoint__c;
         username = client.userName;
         password = client.password+client.token;

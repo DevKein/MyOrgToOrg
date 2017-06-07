@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Migration Job</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Migration Jobs</value>
+    </caseValues>
+    <fields>
+        <label><!-- Base Object Migration Rule --></label>
+        <name>Base_Object_Migration_Rule__c</name>
+        <relationshipLabel><!-- Migration Jobs --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- List View Id --></label>
+        <name>List_View_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Notification Email Address --></label>
+        <name>Notification_Email_Address__c</name>
+    </fields>
+    <fields>
+        <label><!-- Org Credential --></label>
+        <name>Org_Credential__c</name>
+        <relationshipLabel><!-- Migration Jobs --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Send Notification Email On Complete --></label>
+        <name>Send_Notification_Email_On_Complete__c</name>
+    </fields>
+    <gender>Neuter</gender>
+    <webLinks>
+        <label><!-- Run_Now --></label>
+        <name>Run_Now</name>
+    </webLinks>
+</CustomObjectTranslation>

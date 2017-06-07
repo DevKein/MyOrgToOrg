@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>RecordType Mapping</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>RecordType Mappings</value>
+    </caseValues>
+    <fields>
+        <label><!-- Destination RecordType Name --></label>
+        <name>Destination_RecordType_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Migration Rule --></label>
+        <name>Migration_Rule__c</name>
+        <relationshipLabel><!-- RecordType Mappings --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Org Credential --></label>
+        <name>Org_Credential__c</name>
+        <relationshipLabel><!-- RecordType Mappings --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Source RecordType Name --></label>
+        <name>Source_RecordType_Name__c</name>
+    </fields>
+    <gender>Neuter</gender>
+</CustomObjectTranslation>

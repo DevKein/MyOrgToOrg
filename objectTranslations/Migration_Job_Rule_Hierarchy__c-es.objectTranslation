@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Migration Job Rule Hierarchy</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Migration Job Rule Hierarchies</value>
+    </caseValues>
+    <fields>
+        <label><!-- Is Base --></label>
+        <name>Is_Base__c</name>
+    </fields>
+    <fields>
+        <label><!-- Migration Job --></label>
+        <name>Migration_Job__c</name>
+        <relationshipLabel><!-- Migration Job Rule Hierarchies --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Migration Rule --></label>
+        <name>Migration_Rule__c</name>
+        <relationshipLabel><!-- Migration Job Rule Hierarchies --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- DML Sort Order --></label>
+        <name>Sort_Order__c</name>
+    </fields>
+    <fields>
+        <label><!-- Source Object --></label>
+        <name>Source_Object__c</name>
+    </fields>
+    <fields>
+        <label><!-- Target Object --></label>
+        <name>Target_Object__c</name>
+    </fields>
+    <gender>Neuter</gender>
+</CustomObjectTranslation>

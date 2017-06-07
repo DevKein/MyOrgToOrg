@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Migration Log</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Migration Logs</value>
+    </caseValues>
+    <fields>
+        <label><!-- Data Results --></label>
+        <name>Data_Result__c</name>
+    </fields>
+    <fields>
+        <label><!-- Migration Job --></label>
+        <name>Migration_Job__c</name>
+        <relationshipLabel><!-- Migration Logs --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- ObjectName --></label>
+        <name>ObjectName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Org Credential --></label>
+        <name>Org_Credential__c</name>
+        <relationshipLabel><!-- Migration Logs --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- errorMessage --></label>
+        <name>errorMessage__c</name>
+    </fields>
+    <fields>
+        <label><!-- idFromTarget --></label>
+        <name>idFromTarget__c</name>
+    </fields>
+    <fields>
+        <label><!-- isCreated --></label>
+        <name>isCreated__c</name>
+    </fields>
+    <fields>
+        <label><!-- status --></label>
+        <name>status__c</name>
+    </fields>
+    <gender>Neuter</gender>
+</CustomObjectTranslation>

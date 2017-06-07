@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Migration Rule Mapping</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Migration Rule Mappings</value>
+    </caseValues>
+    <fields>
+        <label><!-- Destination Org --></label>
+        <name>Destination_Org__c</name>
+        <relationshipLabel><!-- Migration Rule Mappings --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Is ID Field --></label>
+        <name>Is_ID_Field__c</name>
+    </fields>
+    <fields>
+        <label><!-- Manuel Entry Value --></label>
+        <name>Manuel_Entry_Value__c</name>
+    </fields>
+    <fields>
+        <label><!-- Migration Rule --></label>
+        <name>Migration_Rule__c</name>
+        <relationshipLabel><!-- Migration Rule Mappings --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Migration Type --></label>
+        <name>Migration_Type__c</name>
+        <picklistValues>
+            <masterLabel>Field From Source</masterLabel>
+            <translation><!-- Field From Source --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Manuel Entry</masterLabel>
+            <translation><!-- Manuel Entry --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Source Field --></label>
+        <name>Source_Field__c</name>
+    </fields>
+    <fields>
+        <label><!-- Source Object --></label>
+        <name>Source_Object__c</name>
+    </fields>
+    <fields>
+        <label><!-- Target Field --></label>
+        <name>Target_Field__c</name>
+    </fields>
+    <gender>Neuter</gender>
+    <validationRules>
+        <errorMessage><!-- When field from source is selected Manual Entry Value cannot contain any input. --></errorMessage>
+        <name>ValueControl</name>
+    </validationRules>
+</CustomObjectTranslation>
