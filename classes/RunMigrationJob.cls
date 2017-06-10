@@ -28,7 +28,7 @@ public without sharing class RunMigrationJob extends AbstractRestfullService {
     public RunMigrationJob(ApexPages.StandardController stdController) {
         if (!Test.isRunningTest()) {
             stdController.addFields(new String[] {
-                                        'MigrateTHIS__Org_Credential__c',
+                                        'Org_Credential__c',
                                         'Base_Object_Migration_Rule__c',
                                         'List_View_Id__c',
                                         'Notification_Email_Address__c',

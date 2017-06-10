@@ -1,274 +1,274 @@
 <apex:page showHeader="false" sidebar="false" standardController="Migration_Rule__c" extensions="FieldMappingController" standardStylesheets="false">
-	
-   	<style type="text/css">
-		* {		  
-		  overflow-x: hidden;
-		}
-		.container {
-		  overflow: auto;
-		  margin-top: 50px;
-		  /*width: 100vw;
-		  height: 100vh;*/
-		}
-		.container .fixed-half {
-		  position: fixed;
-		  will-change: transform;
-		  background-color: #4682b4;
-		  background-size: cover;
-		  font-size: 12px;
-		  left: 0;
-		  right: 70%;
-		  top: 50px;
-		  bottom: 0;
-		  overflow-y: scroll;
-		}
-		.container .fixed-half .title {
-		  display: flex;
-		  align-items: center;
-		  padding: 35px;
-		}
-		.container .scrolling-half .title {
-		  display: flex;
-		  /*align-items: right;*/
-		  padding: 35px;
-		}
-		.container .mapped-half .title {
-		  display: flex;
-		  /*align-items: right;*/
-		  padding: 35px;
-		}
-		.container .fixed-half .title h2 {
-		  font-size: 14px;
-		  margin-top: 0;
-		  text-transform: uppercase;
-		  color: white;
-		}
-		.container .scrolling-half .title h2 {
-		  font-size: 14px;
-		  margin-top: 0;
-		  text-transform: uppercase;
-		  color: #4682b4;
-		}
-		.container .mapped-half .title h2 {
-		  font-size: 14px;
-		  margin-top: 0;
-		  text-transform: uppercase;
-		  color: #4682b4;
-		}
-		.container .fixed-half .sourceFields {
-		  color: white;
-		  padding-left: 35px;
-		}
-		.container .scrolling-half {
-		  position: fixed;
-		  width: 30%;
-		  margin-left: 30%;
-		  margin-right: 40%;
-		  bottom: 0;
-		  top: 50px;
-		  color: #333;
-		  font-size: 12px;
-		  text-align: justify;
-		  
-		  overflow-y: scroll;
-		}
-		.container .mapped-half {
-		  position: fixed;
-		  width: 39%;
-		  margin-left: 60%;
-		  margin-right: 0;
-		  padding-left: 5px;
-		  bottom: 0;
-		  top: 50px;
-		  color: #333;
-		  font-size: 12px;
-		  text-align: justify;
-		  
-		  overflow-y: scroll;
-		  overflow-x: scroll;
+    
+    <style type="text/css">
+        * {       
+          overflow-x: hidden;
+        }
+        .container {
+          overflow: auto;
+          margin-top: 50px;
+          /*width: 100vw;
+          height: 100vh;*/
+        }
+        .container .fixed-half {
+          position: fixed;
+          will-change: transform;
+          background-color: #4682b4;
+          background-size: cover;
+          font-size: 12px;
+          left: 0;
+          right: 70%;
+          top: 50px;
+          bottom: 0;
+          overflow-y: scroll;
+        }
+        .container .fixed-half .title {
+          display: flex;
+          align-items: center;
+          padding: 35px;
+        }
+        .container .scrolling-half .title {
+          display: flex;
+          /*align-items: right;*/
+          padding: 35px;
+        }
+        .container .mapped-half .title {
+          display: flex;
+          /*align-items: right;*/
+          padding: 35px;
+        }
+        .container .fixed-half .title h2 {
+          font-size: 14px;
+          margin-top: 0;
+          text-transform: uppercase;
+          color: white;
+        }
+        .container .scrolling-half .title h2 {
+          font-size: 14px;
+          margin-top: 0;
+          text-transform: uppercase;
+          color: #4682b4;
+        }
+        .container .mapped-half .title h2 {
+          font-size: 14px;
+          margin-top: 0;
+          text-transform: uppercase;
+          color: #4682b4;
+        }
+        .container .fixed-half .sourceFields {
+          color: white;
+          padding-left: 35px;
+        }
+        .container .scrolling-half {
+          position: fixed;
+          width: 30%;
+          margin-left: 30%;
+          margin-right: 40%;
+          bottom: 0;
+          top: 50px;
+          color: #333;
+          font-size: 12px;
+          text-align: justify;
+          
+          overflow-y: scroll;
+        }
+        .container .mapped-half {
+          position: fixed;
+          width: 39%;
+          margin-left: 60%;
+          margin-right: 0;
+          padding-left: 5px;
+          bottom: 0;
+          top: 50px;
+          color: #333;
+          font-size: 12px;
+          text-align: justify;
+          
+          overflow-y: scroll;
+          overflow-x: scroll;
 
-		}
-		.container .scrolling-half .wrapper {
-		  width: 100%;
-		  padding: 0px 50px;
-		}
-		.container .mapped-half .wrapper {
-		  width: 100%;
-		  padding: 0px 5px 0px 5px;
-		}
-		#myModal{
-			z-index: 9999 !important;
-		}
-		.grabbing {
-			width: 67px;
-			height: 34px;
-			background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/110449/grabbing.png) no-repeat;
-		    animation: drag 1.8s ease-in 0.4s 2 reverse;
-		}
+        }
+        .container .scrolling-half .wrapper {
+          width: 100%;
+          padding: 0px 50px;
+        }
+        .container .mapped-half .wrapper {
+          width: 100%;
+          padding: 0px 5px 0px 5px;
+        }
+        #myModal{
+            z-index: 9999 !important;
+        }
+        .grabbing {
+            width: 67px;
+            height: 34px;
+            background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/110449/grabbing.png) no-repeat;
+            animation: drag 1.8s ease-in 0.4s 2 reverse;
+        }
 
-		@keyframes drag {
-		  0% {margin-left: 0px;}
-		  100% {margin-left: 30px;}
-		}
-		@keyframes error {
-		  0%   {background-color: red;}
-		  100% {background-color: white;}
-		}
-		li{
-			margin-bottom: 10px;
-		}
+        @keyframes drag {
+          0% {margin-left: 0px;}
+          100% {margin-left: 30px;}
+        }
+        @keyframes error {
+          0%   {background-color: red;}
+          100% {background-color: white;}
+        }
+        li{
+            margin-bottom: 10px;
+        }
 
-	</style>
-	<link href="{!URLFOR($Resource.BootstapNoConflict,'bootstrap_with_bs_namespace/css/bootstrap.min.css')}" rel="stylesheet"/>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-	<apex:includeScript value="/soap/ajax/28.0/connection.js"/>
-	<apex:includeScript value="/soap/ajax/28.0/apex.js"/>
-	<apex:form >
-		
-			<script type="text/javascript">
-				sforce.connection.sessionId = "{!$Api.Session_ID}";
-				function allowDrop(ev) {
-					ev.preventDefault();
-					ev.target.style.border = "2px dashed lightgray";
-					ev.target.style.animation = "";
-				}
+    </style>
+    <link href="{!URLFOR($Resource.BootstapNoConflict,'bootstrap_with_bs_namespace/css/bootstrap.min.css')}" rel="stylesheet"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <apex:includeScript value="/soap/ajax/28.0/connection.js"/>
+    <apex:includeScript value="/soap/ajax/28.0/apex.js"/>
+    <apex:form >
+        
+            <script type="text/javascript">
+                sforce.connection.sessionId = "{!$Api.Session_ID}";
+                function allowDrop(ev) {
+                    ev.preventDefault();
+                    ev.target.style.border = "2px dashed lightgray";
+                    ev.target.style.animation = "";
+                }
 
-				function drag(ev) {
-					console.log(ev.target.getAttribute('soapType'));
-				    ev.dataTransfer.setData("text", ev.target.getAttribute('realValue'));
-				    ev.dataTransfer.setData("type", ev.target.getAttribute('soapType'));
-				}
+                function drag(ev) {
+                    console.log(ev.target.getAttribute('soapType'));
+                    ev.dataTransfer.setData("text", ev.target.getAttribute('realValue'));
+                    ev.dataTransfer.setData("type", ev.target.getAttribute('soapType'));
+                }
 
-				function drop(ev) {
-				    ev.preventDefault();
-				    console.log(ev.target.getAttribute('soapType'));
-				    console.log(ev.dataTransfer.getData("type"));
-				    if(ev.dataTransfer.getData("type") != null){
-						var a = ev.dataTransfer.getData("type");
-						var b = ev.target.getAttribute("soapType");
-						console.log(a);
-						console.log(b);
-						
-						var compare = sforce.apex.execute("MigrateTHIS.CheckTypeCompability","check",{source:ev.dataTransfer.getData("type"),target:ev.target.getAttribute("soapType")});
-						console.log(compare);
-						if(compare == "false"){
-							ev.target.style.animation = "error 2s 1";
-							ev.target.style.border = "2px solid white";
-							ev.target.style.backgroundColor = "white";
-						}else{
-							var data = ev.dataTransfer.getData("text");
-				    		setMapping(ev.target.getAttribute("realValue"),ev.dataTransfer.getData("text"));
-						}
-					}
-				}
-				function targetDbl(elem){
-					$('#myModal').attr('tempFieldId',$(elem).attr('realValue'));
-					$('#myModal').modal('toggle');
-					$('#modalTitle').text('Enter Manual Value for '+$(elem).attr('realValue'));
-				}
-				function allowDropRT(ev) {
-					ev.preventDefault();
-					ev.target.style.border = "2px dashed lightgray";
-					ev.target.style.animation = "";
-				}
+                function drop(ev) {
+                    ev.preventDefault();
+                    console.log(ev.target.getAttribute('soapType'));
+                    console.log(ev.dataTransfer.getData("type"));
+                    if(ev.dataTransfer.getData("type") != null){
+                        var a = ev.dataTransfer.getData("type");
+                        var b = ev.target.getAttribute("soapType");
+                        console.log(a);
+                        console.log(b);
+                        
+                        var compare = sforce.apex.execute("CheckTypeCompability","check",{source:ev.dataTransfer.getData("type"),target:ev.target.getAttribute("soapType")});
+                        console.log(compare);
+                        if(compare == "false"){
+                            ev.target.style.animation = "error 2s 1";
+                            ev.target.style.border = "2px solid white";
+                            ev.target.style.backgroundColor = "white";
+                        }else{
+                            var data = ev.dataTransfer.getData("text");
+                            setMapping(ev.target.getAttribute("realValue"),ev.dataTransfer.getData("text"));
+                        }
+                    }
+                }
+                function targetDbl(elem){
+                    $('#myModal').attr('tempFieldId',$(elem).attr('realValue'));
+                    $('#myModal').modal('toggle');
+                    $('#modalTitle').text('Enter Manual Value for '+$(elem).attr('realValue'));
+                }
+                function allowDropRT(ev) {
+                    ev.preventDefault();
+                    ev.target.style.border = "2px dashed lightgray";
+                    ev.target.style.animation = "";
+                }
 
-				function dragRT(ev) {
-				    ev.dataTransfer.setData("source", ev.target.getAttribute('realValue'));
-				}
+                function dragRT(ev) {
+                    ev.dataTransfer.setData("source", ev.target.getAttribute('realValue'));
+                }
 
-				function dropRT(ev) {
-				    ev.preventDefault();
-				    
-				    if(ev.dataTransfer.getData("source") != null){
-						var a = ev.dataTransfer.getData("type");
-						var data = ev.dataTransfer.getData("text");
-						ev.target.style.border = "2px solid white";
-						ev.target.style.backgroundColor = "white";
-				    	MapRecordType(ev.target.getAttribute("realValue"),ev.dataTransfer.getData("source"));
-					}
-				}
-			</script>
-		
-		<apex:actionFunction name="setMapping" action="{!setMapping}" status="status" reRender="main" >
-			<apex:param name="from" value="" />
-			<apex:param name="to" value="" />
-		</apex:actionFunction>
-		
-		<apex:outputPanel id="OrgSetting" style="margin-left:35px;">
-			<div style="position: fixed;font-size: 18px;top:10px; width: 100%">
-				<b><apex:outputLabel for="settingSelection" value="Destination Org" /></b>&nbsp;
-				<apex:selectList id="settingSelection" value="{!selectedSetting}" size="1" multiselect="false" >
-	                <apex:actionSupport action="{!retrieveTargetFields}" status="status" event="onchange" reRender="main,OrgSetting"/>
-	                <apex:selectOptions value="{!settingOptions}"/>                    
-	            </apex:selectList>
-	            <apex:commandButton styleClass="btn btn-primary" style="margin-left:35px;" status="status" value="Auto Mapping" disabled="{!selectedSetting == null}" action="{!autoMapping}" reRender="main"/>
-	            <apex:commandButton styleClass="btn btn-primary" style="margin-left:35px;" status="status" value="Reset" disabled="{!selectedSetting == null}" action="{!resetMapping}" reRender="main"/>
-	            <button type="button" style="float: right;margin-right:35px;" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#helpModal">
-				  Help
-				</button>
-				<apex:commandButton styleClass="btn btn-primary" style="margin-left:35px;" status="status" onclick="$('#rtModal').modal('toggle');" value="Set record type mapping" disabled="{!selectedSetting == null}" action="{!retrieveTargetRecordTypes}" reRender="rtPanel"/>
-				
+                function dropRT(ev) {
+                    ev.preventDefault();
+                    
+                    if(ev.dataTransfer.getData("source") != null){
+                        var a = ev.dataTransfer.getData("type");
+                        var data = ev.dataTransfer.getData("text");
+                        ev.target.style.border = "2px solid white";
+                        ev.target.style.backgroundColor = "white";
+                        MapRecordType(ev.target.getAttribute("realValue"),ev.dataTransfer.getData("source"));
+                    }
+                }
+            </script>
+        
+        <apex:actionFunction name="setMapping" action="{!setMapping}" status="status" reRender="main" >
+            <apex:param name="from" value="" />
+            <apex:param name="to" value="" />
+        </apex:actionFunction>
+        
+        <apex:outputPanel id="OrgSetting" style="margin-left:35px;">
+            <div style="position: fixed;font-size: 18px;top:10px; width: 100%">
+                <b><apex:outputLabel for="settingSelection" value="Destination Org" /></b>&nbsp;
+                <apex:selectList id="settingSelection" value="{!selectedSetting}" size="1" multiselect="false" >
+                    <apex:actionSupport action="{!retrieveTargetFields}" status="status" event="onchange" reRender="main,OrgSetting"/>
+                    <apex:selectOptions value="{!settingOptions}"/>                    
+                </apex:selectList>
+                <apex:commandButton styleClass="btn btn-primary" style="margin-left:35px;" status="status" value="Auto Mapping" disabled="{!selectedSetting == null}" action="{!autoMapping}" reRender="main"/>
+                <apex:commandButton styleClass="btn btn-primary" style="margin-left:35px;" status="status" value="Reset" disabled="{!selectedSetting == null}" action="{!resetMapping}" reRender="main"/>
+                <button type="button" style="float: right;margin-right:35px;" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#helpModal">
+                  Help
+                </button>
+                <apex:commandButton styleClass="btn btn-primary" style="margin-left:35px;" status="status" onclick="$('#rtModal').modal('toggle');" value="Set record type mapping" disabled="{!selectedSetting == null}" action="{!retrieveTargetRecordTypes}" reRender="rtPanel"/>
+                
             </div>
-		</apex:outputPanel>
-		<apex:outputPanel id="main" >
-			<div class="container">
-			  <div class="fixed-half">
-			  <!--<div class="grabbing"></div>-->
-			    <div class="title">
-			      <h2><u>Source : {!sourceObject}</u></h2>			      
-			    </div>
-			    <apex:repeat value="{!sourceFields}" var="sf">
-					<div id="sf{!sf}" soapType="{!sourceFields[sf]}" realValue="{!sf}" class="sourceFields" style="width: 100%; height: 30px;" draggable="true" ondragstart="drag(event)">
-						<apex:outputText value="{!sf}" />&nbsp;({!sourceFields[sf]})&nbsp;&#9658;
-					</div>
-				</apex:repeat>
-			  </div>
-			  <div class="scrolling-half" style="border-right: 5px solid black;">
-			  	<div class="title">
-			      <h2><u>Target : {!targetObject}</u></h2>
-			    </div>
-			    <div class="wrapper">
-			      	<apex:repeat value="{!targetFields}" var="tf">
-						<div id="tf{!tf}" soapType="{!targetFields[tf]}" realValue="{!tf}" class="sourceFields" style="width: 90%; height: 30px;border:2px solid white;" ondrop="drop(event)" ondblclick="targetDbl(this);" ondragleave="$(this).css('border','2px solid white');" ondragover="allowDrop(event);" >
-							&#9664;&nbsp;<apex:outputText value="{!tf}" />&nbsp;({!targetFields[tf]})&nbsp;
-						</div>
-					</apex:repeat>
-			    </div>
-			  </div>
-			  <div class="mapped-half">
-			  	<div class="title">
-			      <h2><u>Mapped Fields</u> 
-			      <apex:commandButton styleClass="btn btn-primary" style="margin-left:25px;" status="status" disabled="{!selectedSetting == null}" value="Save State" action="{!SaveState}" reRender="main"/>
-			      <apex:commandButton styleClass="btn btn-primary" style="margin-left:25px;" status="status" disabled="{!selectedSetting == null}" value="Delete All" action="{!clearAll}" reRender="main"/>
-			      </h2>
-			    </div>
-			    <div class="wrapper">
-			      	<apex:repeat value="{!mappedFields}" var="tf">
-			      		<apex:variable value="{!0}" var="count" />
-			      		<apex:repeat value="{!mappedFields[tf]}" var="mf">
-							<div id="mf{!mf.SourceField}"  class="sourceFields" style="width: 100%; height: 30px;{!IF(mf.mId != null,'background-color: #D3D3D3','')}" >
-								<input type="button" class="btn btn-default btn-sm" value="x" realValue="{!IF(NOT(ISBLANK(mf.SourceField)),mf.SourceField,mf.mValue) }" listOrder="{!count}" onclick="removeMapping($(this).attr('realValue'),$(this).attr('listOrder'));" />&nbsp;<apex:outputText value="{!IF(NOT(ISBLANK(mf.SourceField)),mf.SourceField,mf.mValue) }" />&nbsp;&#8594;&nbsp;<apex:outputText value="{!mf.TargetField}" />
-							</div>
-							<apex:variable value="{!count+1}" var="count" />
-						</apex:repeat>
-					</apex:repeat>
-			    </div>
-			  </div>
-			</div>
-		</apex:outputPanel>
-		<apex:actionFunction action="{!retrieveSourceFields}" name="getFields" reRender="main" />
-		<apex:actionFunction name="rerenderMain" reRender="main" />
-		<apex:actionFunction name="rerenderrtPanel" reRender="rtPanel" />
-		<apex:actionFunction action="{!remove}" name="removeMapping" oncomplete="rerenderMain();" immediate="true">
-			<apex:param name="sourceField" value="" />
-			<apex:param name="order" value="" />
-		</apex:actionFunction>
-		<apex:actionFunction action="{!removeRt}" name="removeRtMapping" oncomplete="rerenderrtPanel();" immediate="true">
-			<apex:param name="sourceField" value="" />
-			<apex:param name="order" value="" />
-		</apex:actionFunction>
-		<apex:actionStatus id="status">
+        </apex:outputPanel>
+        <apex:outputPanel id="main" >
+            <div class="container">
+              <div class="fixed-half">
+              <!--<div class="grabbing"></div>-->
+                <div class="title">
+                  <h2><u>Source : {!sourceObject}</u></h2>                
+                </div>
+                <apex:repeat value="{!sourceFields}" var="sf">
+                    <div id="sf{!sf}" soapType="{!sourceFields[sf]}" realValue="{!sf}" class="sourceFields" style="width: 100%; height: 30px;" draggable="true" ondragstart="drag(event)">
+                        <apex:outputText value="{!sf}" />&nbsp;({!sourceFields[sf]})&nbsp;&#9658;
+                    </div>
+                </apex:repeat>
+              </div>
+              <div class="scrolling-half" style="border-right: 5px solid black;">
+                <div class="title">
+                  <h2><u>Target : {!targetObject}</u></h2>
+                </div>
+                <div class="wrapper">
+                    <apex:repeat value="{!targetFields}" var="tf">
+                        <div id="tf{!tf}" soapType="{!targetFields[tf]}" realValue="{!tf}" class="sourceFields" style="width: 90%; height: 30px;border:2px solid white;" ondrop="drop(event)" ondblclick="targetDbl(this);" ondragleave="$(this).css('border','2px solid white');" ondragover="allowDrop(event);" >
+                            &#9664;&nbsp;<apex:outputText value="{!tf}" />&nbsp;({!targetFields[tf]})&nbsp;
+                        </div>
+                    </apex:repeat>
+                </div>
+              </div>
+              <div class="mapped-half">
+                <div class="title">
+                  <h2><u>Mapped Fields</u> 
+                  <apex:commandButton styleClass="btn btn-primary" style="margin-left:25px;" status="status" disabled="{!selectedSetting == null}" value="Save State" action="{!SaveState}" reRender="main"/>
+                  <apex:commandButton styleClass="btn btn-primary" style="margin-left:25px;" status="status" disabled="{!selectedSetting == null}" value="Delete All" action="{!clearAll}" reRender="main"/>
+                  </h2>
+                </div>
+                <div class="wrapper">
+                    <apex:repeat value="{!mappedFields}" var="tf">
+                        <apex:variable value="{!0}" var="count" />
+                        <apex:repeat value="{!mappedFields[tf]}" var="mf">
+                            <div id="mf{!mf.SourceField}"  class="sourceFields" style="width: 100%; height: 30px;{!IF(mf.mId != null,'background-color: #D3D3D3','')}" >
+                                <input type="button" class="btn btn-default btn-sm" value="x" realValue="{!IF(NOT(ISBLANK(mf.SourceField)),mf.SourceField,mf.mValue) }" listOrder="{!count}" onclick="removeMapping($(this).attr('realValue'),$(this).attr('listOrder'));" />&nbsp;<apex:outputText value="{!IF(NOT(ISBLANK(mf.SourceField)),mf.SourceField,mf.mValue) }" />&nbsp;&#8594;&nbsp;<apex:outputText value="{!mf.TargetField}" />
+                            </div>
+                            <apex:variable value="{!count+1}" var="count" />
+                        </apex:repeat>
+                    </apex:repeat>
+                </div>
+              </div>
+            </div>
+        </apex:outputPanel>
+        <apex:actionFunction action="{!retrieveSourceFields}" name="getFields" reRender="main" />
+        <apex:actionFunction name="rerenderMain" reRender="main" />
+        <apex:actionFunction name="rerenderrtPanel" reRender="rtPanel" />
+        <apex:actionFunction action="{!remove}" name="removeMapping" oncomplete="rerenderMain();" immediate="true">
+            <apex:param name="sourceField" value="" />
+            <apex:param name="order" value="" />
+        </apex:actionFunction>
+        <apex:actionFunction action="{!removeRt}" name="removeRtMapping" oncomplete="rerenderrtPanel();" immediate="true">
+            <apex:param name="sourceField" value="" />
+            <apex:param name="order" value="" />
+        </apex:actionFunction>
+        <apex:actionStatus id="status">
             <apex:facet name="start">
             <div style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; opacity: 0.75; z-index: 1000; background-color: black;">
                 &nbsp;
@@ -278,151 +278,151 @@
             </div>
             </apex:facet>
         </apex:actionStatus>
-		<script type="text/javascript">
-		$( document ).ready(function(){
-			getFields();
-		});
-		</script>
-		<apex:actionFunction action="{!saveManualValue}" name="saveManualValue" reRender="main,saveManualValue">
-			<apex:param value="" name="manualField" id="manualField" />
-			<apex:param value="" name="manualVal" id="manualVal" />
-		</apex:actionFunction>
-		<div class="bs">
-			<div id="myModal" class="modal fade" tabindex="-1" role="dialog" tempFieldId="willChange">
-			  <div class="modal-dialog" role="document">
-			    <div class="modal-content">
-			      <div class="modal-header">
-			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			        <h4 id="modalTitle" class="modal-title">Enter Manual Value for </h4>
-			      </div>
-			      <div class="modal-body">
-			        <apex:inputTextarea richText="false" id="manualValue" label="Value" rows="3" cols="60" html-width="100%" value="{!manualValue}" />
-			      </div>
-			      <div class="modal-footer">
-			        <apex:commandButton styleClass="btn btn-default" action="{!closeModal}" html-data-dismiss="modal" value="Close" title="closePanel" reRender="manualValue" />
-			        <apex:commandButton html-data-dismiss="modal" onclick="saveManualValue($('#myModal').attr('tempFieldId'),$('[Id$=manualValue]').val())" value="Save Mapping" styleClass="btn btn-primary" reRender="xx"/>
-			      </div>
-			    </div><!-- /.modal-content -->
-			  </div><!-- /.modal-dialog -->
-			</div><!-- /.modal -->
-		</div>
-		<div class="bs">
-			<div id="rtModal" class="modal fade" tabindex="-1" role="dialog" tempFieldId="willChange">
-			  <div class="modal-dialog modal-lg" role="document" style="width: 75%;">
-			    <div class="modal-content">
-			      <div class="modal-header">
-			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			        <h4 id="modalTitle" class="modal-title">Set RecordType Mapping </h4>
-			      </div>
-			      <div class="modal-body" style="padding: 15px; height: 200px;">
-			        <div id="rtMain">
-			        	<apex:outputPanel id="rtPanel" layout="block">
-				        	<div id="rtFixed" style="margin-right: 30%;position: absolute;color: white;overflow-y: scroll;background-color: #4682B4;">
-				        		<h4><u>Source Object Record Types</u></h4>
-				        		<apex:repeat value="{!sourceRecordTypes}" var="srt" >
-				        			<div style="width: 100%; height: 30px;" draggable="true" ondragstart="dragRT(event)" realValue="{!srt}">
-				        				{!sourceRecordTypes[srt].DeveloperName}&nbsp;&#9658;
-				        			</div>
-				        		</apex:repeat>
-				        	</div>
-			        	
-			        		<div id="rtSrolling" style="margin-left: 30%;position: absolute;overflow-y: scroll;">
-			        			<h4><u>Target Object Record Types</u></h4>
-			        			<apex:repeat value="{!targetRecordTypes}" var="trt" >
-				        			<div realValue="{!trt}" class="sourceFields" style="width: 90%; height: 30px;border:2px solid white;" ondrop="dropRT(event)" ondragleave="$(this).css('border','2px solid white');" ondragover="allowDropRT(event);">
-				        				{!targetRecordTypes[trt].DeveloperName}
-				        			</div>
-				        		</apex:repeat>
-			        		</div>
-			        		<div id="rtMapping" style="margin-left: 60%;position: absolute;overflow-y: scroll;border-left: 4px solid black;padding-left: 5px;height: 100%;">
-			        			<h4><u>Mapped Record Types</u></h4>
-			        			<apex:repeat value="{!recordTypeMapping}" var="rtm" >
-			        				<apex:variable value="{!0}" var="rtCount" />
-			        				<apex:repeat value="{!recordTypeMapping[rtm]}" var="m">
-					        			<div style="width: 100%; height: 30px;{!IF(m.mId != null,'background-color: #D3D3D3','')}">
-					        				<input type="button" class="btn btn-default btn-sm" value="x" realValue="{!rtm}" listOrder="{!rtCount}" onclick="removeRtMapping($(this).attr('realValue'),$(this).attr('listOrder'));"/>
-					        				&nbsp;<apex:outputText value="{!rtm}" />&nbsp;&#8594;&nbsp;<apex:outputText value="{!m.targetName}" />
-					        				
-					        			</div>
-					        			<apex:variable value="{!rtCount+1}" var="rtCount" ></apex:variable>
-				        			</apex:repeat>
-				        		</apex:repeat>
-			        		</div>
-			        		<apex:actionFunction name="MapRecordType" action="{!setRtMapping}" status="status" reRender="rtPanel" >
-								<apex:param name="from" value="" />
-								<apex:param name="to" value="" />
-							</apex:actionFunction>
-			        	</apex:outputPanel>
-			        </div>
-			      </div>
-			      <div class="modal-footer">
-			        <apex:commandButton html-data-dismiss="modal" action="{!saveRecordTypeMapping}" value="Save RecordType Mapping" styleClass="btn btn-primary" reRender="rtPanel" immediate="true"/>
-			      </div>
-			    </div><!-- /.modal-content -->
-			  </div><!-- /.modal-dialog -->
-			</div><!-- /.modal -->
-		</div>
-		<div class="bs">
-			<div id="helpModal" class="modal fade" tabindex="-1" role="dialog" tempFieldId="willChange">
-			  <div class="modal-dialog" role="document">
-			    <div class="modal-content">
-			      <div class="modal-header">
-			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			        <h4 id="modalTitle" class="modal-title">Help</h4>
-			      </div>
-			      <div class="modal-body" style="height: 500px;overflow-y: scroll;">
-			      	<ul>
-			      		<li>
-			      			<div class="help">
-							    <div class="grabbing"></div>
-							    <span>1) Drag source field onto target field for manual mapping.</span>
-					    	</div>
-			      		</li>
-			      		<li>
-			      			<div class="help">
-							    <apex:image url="{!URLFOR($Resource.GearImage)}" style="width: 50px; height: 50px;"/>
-							    <p>2) Auto mapping button maps source fields to target fields which has exactly the same field name.</p>
-							    <p>When you use auto mapping, make sure external Id mapping is correct.</p>
-					    	</div>
-			      		</li>
-			      		<li>
-			      			<div class="help">
-							    <apex:image url="{!URLFOR($Resource.resetImage)}" style="width: 50px; height: 50px;"/>
-							    <p>3) Reset button refreshes mapping state to the last interaction.</p>
-					    	</div>
-			      		</li>
-			      		<li>
-			      			<div class="help">
-							    <apex:image url="{!URLFOR($Resource.deleteImage)}" style="width: 50px; height: 50px;"/>
-							    <p>4) Delete all button deletes all existing mappings and clears mapping state.</p>
-					    	</div>
-			      		</li>
-			      		<li>
-			      			<div class="help">
-							    <apex:image url="{!URLFOR($Resource.saveImage)}" style="width: 50px; height: 50px;"/>
-							    <p>5) Save state button saves last state to the database.</p>
-					    	</div>
-			      		</li>
-			      		<li>
-			      			<div class="help">
-							    <div style="animation: error 2s infinite;width: 50%;">&nbsp;</div>
-							    <p>6) Red background color will be seen when mapping type is not matching.</p>
-					    	</div>
-			      		</li>
-			      		<li>
-			      			<div class="help">
-							    <apex:image url="{!URLFOR($Resource.DoubleClickImage)}" style="width: 75px; height: 55px;"/>
-							    <p>7) Double click on target field to enter manual value instead of mapping with a source field.</p>
-					    	</div>
-			      		</li>
-			      	</ul>
-			      </div>
-			      <div class="modal-footer">
-			        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>			        
-			      </div>
-			    </div><!-- /.modal-content -->
-			  </div><!-- /.modal-dialog -->
-			</div><!-- /.modal -->
-		</div>
-	</apex:form>
+        <script type="text/javascript">
+        $( document ).ready(function(){
+            getFields();
+        });
+        </script>
+        <apex:actionFunction action="{!saveManualValue}" name="saveManualValue" reRender="main,saveManualValue">
+            <apex:param value="" name="manualField" id="manualField" />
+            <apex:param value="" name="manualVal" id="manualVal" />
+        </apex:actionFunction>
+        <div class="bs">
+            <div id="myModal" class="modal fade" tabindex="-1" role="dialog" tempFieldId="willChange">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 id="modalTitle" class="modal-title">Enter Manual Value for </h4>
+                  </div>
+                  <div class="modal-body">
+                    <apex:inputTextarea richText="false" id="manualValue" label="Value" rows="3" cols="60" html-width="100%" value="{!manualValue}" />
+                  </div>
+                  <div class="modal-footer">
+                    <apex:commandButton styleClass="btn btn-default" action="{!closeModal}" html-data-dismiss="modal" value="Close" title="closePanel" reRender="manualValue" />
+                    <apex:commandButton html-data-dismiss="modal" onclick="saveManualValue($('#myModal').attr('tempFieldId'),$('[Id$=manualValue]').val())" value="Save Mapping" styleClass="btn btn-primary" reRender="xx"/>
+                  </div>
+                </div><!-- /.modal-content -->
+              </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+        </div>
+        <div class="bs">
+            <div id="rtModal" class="modal fade" tabindex="-1" role="dialog" tempFieldId="willChange">
+              <div class="modal-dialog modal-lg" role="document" style="width: 75%;">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 id="modalTitle" class="modal-title">Set RecordType Mapping </h4>
+                  </div>
+                  <div class="modal-body" style="padding: 15px; height: 200px;">
+                    <div id="rtMain">
+                        <apex:outputPanel id="rtPanel" layout="block">
+                            <div id="rtFixed" style="margin-right: 30%;position: absolute;color: white;overflow-y: scroll;background-color: #4682B4;">
+                                <h4><u>Source Object Record Types</u></h4>
+                                <apex:repeat value="{!sourceRecordTypes}" var="srt" >
+                                    <div style="width: 100%; height: 30px;" draggable="true" ondragstart="dragRT(event)" realValue="{!srt}">
+                                        {!sourceRecordTypes[srt].DeveloperName}&nbsp;&#9658;
+                                    </div>
+                                </apex:repeat>
+                            </div>
+                        
+                            <div id="rtSrolling" style="margin-left: 30%;position: absolute;overflow-y: scroll;">
+                                <h4><u>Target Object Record Types</u></h4>
+                                <apex:repeat value="{!targetRecordTypes}" var="trt" >
+                                    <div realValue="{!trt}" class="sourceFields" style="width: 90%; height: 30px;border:2px solid white;" ondrop="dropRT(event)" ondragleave="$(this).css('border','2px solid white');" ondragover="allowDropRT(event);">
+                                        {!targetRecordTypes[trt].DeveloperName}
+                                    </div>
+                                </apex:repeat>
+                            </div>
+                            <div id="rtMapping" style="margin-left: 60%;position: absolute;overflow-y: scroll;border-left: 4px solid black;padding-left: 5px;height: 100%;">
+                                <h4><u>Mapped Record Types</u></h4>
+                                <apex:repeat value="{!recordTypeMapping}" var="rtm" >
+                                    <apex:variable value="{!0}" var="rtCount" />
+                                    <apex:repeat value="{!recordTypeMapping[rtm]}" var="m">
+                                        <div style="width: 100%; height: 30px;{!IF(m.mId != null,'background-color: #D3D3D3','')}">
+                                            <input type="button" class="btn btn-default btn-sm" value="x" realValue="{!rtm}" listOrder="{!rtCount}" onclick="removeRtMapping($(this).attr('realValue'),$(this).attr('listOrder'));"/>
+                                            &nbsp;<apex:outputText value="{!rtm}" />&nbsp;&#8594;&nbsp;<apex:outputText value="{!m.targetName}" />
+                                            
+                                        </div>
+                                        <apex:variable value="{!rtCount+1}" var="rtCount" ></apex:variable>
+                                    </apex:repeat>
+                                </apex:repeat>
+                            </div>
+                            <apex:actionFunction name="MapRecordType" action="{!setRtMapping}" status="status" reRender="rtPanel" >
+                                <apex:param name="from" value="" />
+                                <apex:param name="to" value="" />
+                            </apex:actionFunction>
+                        </apex:outputPanel>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <apex:commandButton html-data-dismiss="modal" action="{!saveRecordTypeMapping}" value="Save RecordType Mapping" styleClass="btn btn-primary" reRender="rtPanel" immediate="true"/>
+                  </div>
+                </div><!-- /.modal-content -->
+              </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+        </div>
+        <div class="bs">
+            <div id="helpModal" class="modal fade" tabindex="-1" role="dialog" tempFieldId="willChange">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 id="modalTitle" class="modal-title">Help</h4>
+                  </div>
+                  <div class="modal-body" style="height: 500px;overflow-y: scroll;">
+                    <ul>
+                        <li>
+                            <div class="help">
+                                <div class="grabbing"></div>
+                                <span>1) Drag source field onto target field for manual mapping.</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="help">
+                                <apex:image url="{!URLFOR($Resource.GearImage)}" style="width: 50px; height: 50px;"/>
+                                <p>2) Auto mapping button maps source fields to target fields which has exactly the same field name.</p>
+                                <p>When you use auto mapping, make sure external Id mapping is correct.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="help">
+                                <apex:image url="{!URLFOR($Resource.resetImage)}" style="width: 50px; height: 50px;"/>
+                                <p>3) Reset button refreshes mapping state to the last interaction.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="help">
+                                <apex:image url="{!URLFOR($Resource.deleteImage)}" style="width: 50px; height: 50px;"/>
+                                <p>4) Delete all button deletes all existing mappings and clears mapping state.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="help">
+                                <apex:image url="{!URLFOR($Resource.saveImage)}" style="width: 50px; height: 50px;"/>
+                                <p>5) Save state button saves last state to the database.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="help">
+                                <div style="animation: error 2s infinite;width: 50%;">&nbsp;</div>
+                                <p>6) Red background color will be seen when mapping type is not matching.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="help">
+                                <apex:image url="{!URLFOR($Resource.DoubleClickImage)}" style="width: 75px; height: 55px;"/>
+                                <p>7) Double click on target field to enter manual value instead of mapping with a source field.</p>
+                            </div>
+                        </li>
+                    </ul>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>                   
+                  </div>
+                </div><!-- /.modal-content -->
+              </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+        </div>
+    </apex:form>
 </apex:page>

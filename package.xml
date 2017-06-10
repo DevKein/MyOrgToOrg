@@ -1439,6 +1439,7 @@
     <members>DuplicateRecordSet-Duplicate Record Set Layout</members>
     <members>EmailMessage-Email Message Layout</members>
     <members>Event-Event Layout</members>
+    <members>FeedItem-Feed Item Layout</members>
     <members>Global-Global Layout</members>
     <members>Idea-Idea Layout</members>
     <members>Lead-Lead %28Marketing%29 Layout</members>

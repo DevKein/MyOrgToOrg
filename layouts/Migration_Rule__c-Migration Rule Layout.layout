@@ -17,12 +17,8 @@
                 <field>Callout_Chunk_Size__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Required</behavior>
-                <field>Source_Object__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Required</behavior>
-                <field>Target_Object__c</field>
+                <behavior>Edit</behavior>
+                <field>Is_self_related__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -30,8 +26,39 @@
                 <behavior>Edit</behavior>
                 <field>OwnerId</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Description__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
+    </layoutSections>
+    <layoutSections>
+        <customLabel>true</customLabel>
+        <detailHeading>true</detailHeading>
+        <editHeading>true</editHeading>
+        <label>Rule Details</label>
+        <layoutColumns>
+            <layoutItems>
+                <behavior>Required</behavior>
+                <field>Source_Object__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Source_Object_Name_Field__c</field>
+            </layoutItems>
+        </layoutColumns>
+        <layoutColumns>
+            <layoutItems>
+                <behavior>Required</behavior>
+                <field>Target_Object__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Target_Object_Name_Field__c</field>
+            </layoutItems>
+        </layoutColumns>
+        <style>TwoColumnsLeftToRight</style>
     </layoutSections>
     <layoutSections>
         <customLabel>false</customLabel>
@@ -64,22 +91,35 @@
     </layoutSections>
     <relatedLists>
         <fields>NAME</fields>
-        <relatedList>Migration_Job_Rule_Hierarchy__c.Migration_Rule__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
+        <fields>Source_Object__c</fields>
+        <fields>Migration_Type__c</fields>
+        <fields>Source_Field__c</fields>
+        <fields>Manuel_Entry_Value__c</fields>
+        <fields>Target_Field__c</fields>
+        <fields>Destination_Org__c</fields>
+        <fields>Is_ID_Field__c</fields>
         <relatedList>Migration_Rule_Mapping__c.Migration_Rule__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>Source_RecordType_Name__c</fields>
+        <fields>Destination_RecordType_Name__c</fields>
         <relatedList>RecordType_Mapping__c.Migration_Rule__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>Master_Migration_Rule__c</fields>
+        <fields>Detail_Source_Object__c</fields>
+        <fields>Target_Relationship_Field__c</fields>
+        <fields>Source_Relationship_Name__c</fields>
         <relatedList>Migration_Rule_Relation__c.Detail_Migration_Rule__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>Detail_Migration_Rule__c</fields>
+        <fields>Detail_Source_Object__c</fields>
+        <fields>Target_Relationship_Field__c</fields>
+        <fields>Source_Relationship_Name__c</fields>
         <relatedList>Migration_Rule_Relation__c.Master_Migration_Rule__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>

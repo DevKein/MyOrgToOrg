@@ -66,10 +66,10 @@ public abstract class AbstractRestfullService implements IRestfullService{
             req.setMethod('POST');
             System.debug(loggingLevel.Error, '*** req: ' + req);
             if(!String.isBlank(endPoint)){
-                req.setEndpoint(endPoint + '/services/apexrest/MigrateTHIS/transportdata');
+                req.setEndpoint(endPoint + '/services/apexrest/transportdata');
             }
             else{
-                req.setEndpoint(ep + '/services/apexrest/MigrateTHIS/transportdata');
+                req.setEndpoint(ep + '/services/apexrest/transportdata');
             }
             
             HttpResponse res = carrier.send(req);
@@ -97,10 +97,10 @@ public abstract class AbstractRestfullService implements IRestfullService{
                   
             req.setMethod('GET');
             if(!String.isBlank(endPoint)){
-                req.setEndpoint(endPoint + '/services/apexrest/MigrateTHIS/transportdata');
+                req.setEndpoint(endPoint + '/services/apexrest/transportdata');
             }
             else{
-                req.setEndpoint(ep + '/services/apexrest/MigrateTHIS/transportdata');
+                req.setEndpoint(ep + '/services/apexrest/transportdata');
             }
             HttpResponse res = carrier.send(req);
             return res.getBody();
