@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Org Credential</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Org Credentials</value>
+    </caseValues>
+    <fields>
+        <label><!-- Active --></label>
+        <name>Active__c</name>
+    </fields>
+    <fields>
+        <label><!-- Connected App Client Id --></label>
+        <name>Connected_App_Client_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Connected App Client Secret --></label>
+        <name>Connected_App_Client_Secret__c</name>
+    </fields>
+    <fields>
+        <label><!-- Destination Endpoint --></label>
+        <name>Destination_Endpoint__c</name>
+    </fields>
+    <fields>
+        <label><!-- Destination Org Password --></label>
+        <name>Destination_Org_Password__c</name>
+    </fields>
+    <fields>
+        <label><!-- Destination Org Security Token --></label>
+        <name>Destination_Org_Security_Token__c</name>
+    </fields>
+    <fields>
+        <label><!-- Destination Org Username --></label>
+        <name>Destination_Org_Username__c</name>
+    </fields>
+    <gender>Neuter</gender>
+</CustomObjectTranslation>
